@@ -1,10 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { mulish } from "./fonts";
 import GraphQLProvider from "./lib/provider";
 import "./globals.css";
 import Navbar from "./components/Menu";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Koła Naukowe",
@@ -18,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl">
-      <body className={inter.className}>
+      <body className={mulish.className}>
         <Navbar />
         <GraphQLProvider>{children}</GraphQLProvider>
       </body>

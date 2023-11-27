@@ -10,6 +10,7 @@ import { setContext } from "@apollo/client/link/context";
 
 const httpLink = createHttpLink({
   uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
+  credentials: "same-origin",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -24,6 +25,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
+  ssrMode: true,
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
