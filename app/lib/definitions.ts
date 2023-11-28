@@ -1,6 +1,14 @@
 export interface IFaculty {
   name: string;
   abbreviation: string;
+  logo: {
+    data: {
+      attributes: {
+        name: string;
+        url: string;
+      };
+    };
+  };
 }
 
 export interface IAcademicCircle {
