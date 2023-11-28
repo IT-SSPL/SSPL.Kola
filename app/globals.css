@@ -7,6 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
   --text-color: #252525;
+  --background: url("/background-light.svg");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,7 +18,24 @@
   }
 }
 
+.gradient-for-text {
+  background-image: linear-gradient(to top right, var(--tw-gradient-stops));
+  --tw-gradient-from: #4c1d95 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(76 29 149 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-to: rgb(134 25 143 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    #86198f var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-to: #9333ea var(--tw-gradient-to-position);
+  background-clip: text;
+}
+
+[style="color-scheme: dark;"] {
+  --text-color: #f6f4f9;
+  --background: url("/background-dark.svg");
+}
+
 body {
   color: var(--text-color);
-  background: url("/background.svg");
+  background: var(--background);
 }

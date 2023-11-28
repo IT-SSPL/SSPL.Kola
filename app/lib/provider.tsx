@@ -1,5 +1,6 @@
 "use client";
 
+// Import for Apollo Client
 import {
   ApolloClient,
   ApolloProvider,
@@ -8,6 +9,11 @@ import {
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
 
+// Import for Next Theme
+import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { type ThemeProviderProps } from "next-themes/dist/types";
+
+// Apollo Client
 const httpLink = createHttpLink({
   uri: `${process.env.NEXT_PUBLIC_API_URL}/graphql`,
   credentials: "same-origin",
@@ -38,4 +44,22 @@ const GraphQlProvider: React.FC<IGraphQlProviderProps> = ({ children }) => {
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 };
 
-export default GraphQlProvider;
+// Next Themes
+const ThemeProvider = ({ children, ...props }: ThemeProviderProps) => {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+};
+
+const Provider = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      disableTransitionOnChange
+    >
+      <GraphQlProvider>{children}</GraphQlProvider>
+    </ThemeProvider>
+  );
+};
+
+export default Provider;
