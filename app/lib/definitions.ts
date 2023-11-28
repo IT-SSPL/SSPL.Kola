@@ -11,6 +11,11 @@ export interface IFaculty {
   };
 }
 
+export interface ISocialMedia {
+  type: string;
+  url: string;
+}
+
 export interface IAcademicCircle {
   name: string;
   description: string;
@@ -34,8 +39,5 @@ export interface IAcademicCircle {
     room: string;
     street: string;
   };
-  social_media: {
-    type: string;
-    url: string;
-  }[];
+  social_media: ISocialMedia[];
 }
