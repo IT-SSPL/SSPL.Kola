@@ -18,8 +18,10 @@ export default function RootLayout({
     <html lang="pl" suppressHydrationWarning>
       <body className={mulish.className}>
         <Provider>
-          <Navbar />
-          {children}
+          <div className="mx-10 md:mx-20 lg:mx-28">
+            <Navbar />
+            {children}
+          </div>
         </Provider>
       </body>
     </html>
