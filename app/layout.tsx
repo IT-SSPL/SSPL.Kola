@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { mulish } from "./fonts";
 import "./globals.css";
-import Navbar from "./components/Menu";
+import Navbar from "./components/Navbar";
 import Provider from "./lib/provider";
 
 export const metadata: Metadata = {
