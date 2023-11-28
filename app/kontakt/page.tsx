@@ -1,6 +1,7 @@
 "use client";
 
 import { rubik_mono_one } from "../fonts";
+import "../globals.css";
 
 const Page = () => {
   return (
@@ -13,12 +14,12 @@ const Page = () => {
             Kontakt
           </h1>
           <h2
-            className={`text-lg md:text-xl text-center ${rubik_mono_one.className} bg-gradient-to-tr from-violet-900 via-fuchsia-800 to-purple-600 bg-clip-text text-transparent`}
+            className={`text-lg md:text-xl text-center ${rubik_mono_one.className} gradient-for-text text-transparent`}
           >
             Komisja ds. Koształcenia i Kół Naukowych
           </h2>
         </div>
-        <div className="flex flex-col md:flex-row justify-between w-full p-7 md:px-16 md:py-7 xl:px-24 xl:py-11 bg-white bg-opacity-60 rounded-3xl shadow-md ">
+        <div className="flex flex-col md:flex-row justify-between w-full p-5 md:px-16 md:py-7 xl:px-24 xl:py-11 bg-card dark:bg-opacity-10 bg-opacity-60 rounded-3xl shadow-md ">
           <div className="flex text-md sm:text-lg md:text-xl flex-col gap-2">
             <div className="flex flex-col md:flex-row gap-1 md:gap-2">
               <h3 className="font-bold md:text-right">E-mail:</h3>
