@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { mulish } from "./fonts";
-import GraphQLProvider from "./lib/provider";
 import "./globals.css";
 import Navbar from "./components/Menu";
+import Provider from "./lib/provider";
 
 export const metadata: Metadata = {
   title: "Koła Naukowe",
@@ -15,10 +15,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pl">
+    <html lang="pl" suppressHydrationWarning>
       <body className={mulish.className}>
-        <Navbar />
-        <GraphQLProvider>{children}</GraphQLProvider>
+        <Provider>
+          <Navbar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
