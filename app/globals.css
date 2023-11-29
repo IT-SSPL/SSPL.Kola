@@ -39,4 +39,5 @@
 body {
   color: var(--text-color);
   background: var(--background);
+  background-size: cover;
 }

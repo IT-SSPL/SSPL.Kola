@@ -12,7 +12,7 @@ const config: Config = {
       colors: {
         primary: "#252525",
         darkprimary: "#F7F5FA",
-        card: "#f6f4f9",
+        card: "#fcfcfc",
         darkcard: "#5C5B5B",
       },
       boxShadow: {
