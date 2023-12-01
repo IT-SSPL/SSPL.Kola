@@ -16,6 +16,16 @@ export interface ISocialMedia {
   url: string;
 }
 
+export interface IContact {
+  email: string;
+  address: {
+    building: string;
+    campus: string;
+    room: string;
+    street: string;
+  };
+}
+
 export interface IAcademicCircle {
   name: string;
   description: string;

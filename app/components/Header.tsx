@@ -1,16 +1,27 @@
 import { rubik_mono_one } from "../fonts";
 
-const Header = () => (
-  <header className="text-center pt-16 pb-10">
+interface HeaderProps {
+  small?: boolean;
+  title: string | null;
+  subtitle: string | null;
+}
+
+const Header = ({ small, title, subtitle }: HeaderProps) => (
+  <header className={`text-center pt-16 pb-10 ${rubik_mono_one.className}`}>
     <h1
-      className={`${rubik_mono_one.className} text-6xl md:text-7xl lg:text-8xl`}
+      className={`whitespace-pre-line mb-1 ${
+        small ? "text-5xl lg:text-6xl" : "text-6xl md:text-7xl lg:text-8xl"
+      }`}
     >
-      KOŁA <br />
-      NAUKOWE
-      <div className="gradient-for-text text-transparent text-2xl md:text-3xl lg:text-4xl">
-        POLITECHNIKI ŁÓDZKIEJ
-      </div>
+      {title}
     </h1>
+    <h3
+      className={`gradient-for-text text-transparent ${
+        small ? "text-lg md:text-xl" : "text-2xl md:text-3xl lg:text-4xl"
+      }`}
+    >
+      {subtitle}
+    </h3>
   </header>
 );
 
