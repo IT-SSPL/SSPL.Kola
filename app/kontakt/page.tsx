@@ -3,6 +3,7 @@
 import { useSuspenseQuery } from "@apollo/client";
 import { FETCH_CONTACT } from "../lib/fetchContact";
 import { Suspense } from "react";
+import { HiArrowLeft } from "react-icons/hi2";
 import Header from "../components/Header";
 import ContentContainer from "../components/ContentContainer";
 
@@ -19,7 +20,7 @@ const Page = () => {
             small
           />
         </div>
-        <ContentContainer style={"flex-col md:flex-row justify-between "}>
+        <ContentContainer style={"flex-col md:flex-row justify-between group"}>
           <div className="flex text-lg lg:text-xl flex-col gap-2">
             <Suspense fallback={<div>Loading...</div>}>
               <div className="flex flex-col md:flex-row gap-1 md:gap-2">
@@ -44,9 +45,9 @@ const Page = () => {
             </Suspense>
           </div>
           <div className="hidden md:flex font-semibold">
-            <div className="group flex items-center gap-3">
-              <p className="relative text-5xl transition-all duration-300 group-hover:-translate-x-10">
-                &#129044;
+            <div className="group flex items-center gap-5">
+              <p className="relative text-3xl transition-all duration-300 group-hover:-translate-x-10">
+                <HiArrowLeft />
               </p>
               <p className="text-xl">KONTAKT</p>
             </div>
