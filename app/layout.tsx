@@ -3,6 +3,7 @@ import { mulish } from "./fonts";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Provider from "./lib/provider";
+import Footer from "./components/Footer";
 
 export const metadata: Metadata = {
   title: "Koła Naukowe",
@@ -18,10 +19,11 @@ export default function RootLayout({
     <html lang="pl" suppressHydrationWarning>
       <body className={mulish.className}>
         <Provider>
-          <div className="mx-10 md:mx-20 lg:mx-28">
+          <div className="mx-10 md:mx-20 lg:mx-24 3xl:mx-40">
             <Navbar />
             {children}
           </div>
+          <Footer />
         </Provider>
       </body>
     </html>

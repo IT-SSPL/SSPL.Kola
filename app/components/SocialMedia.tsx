@@ -1,23 +1,50 @@
 import { FaFacebook, FaGlobe, FaLinkedin, FaInstagram } from "react-icons/fa6";
 import Link from "next/link";
 
-type SocialType = "facebook" | "linkedin" | "instagram" | "website";
+export enum SocialType {
+  Facebook = "facebook",
+  Linkedin = "linkedin",
+  Instagram = "instagram",
+  Website = "website",
+}
 
-const socialType: Record<SocialType, JSX.Element> = {
-  facebook: <FaFacebook />,
-  linkedin: <FaLinkedin />,
-  instagram: <FaInstagram />,
-  website: <FaGlobe />,
+const socialIcons: Record<SocialType, JSX.Element> = {
+  [SocialType.Facebook]: <FaFacebook />,
+  [SocialType.Linkedin]: <FaLinkedin />,
+  [SocialType.Instagram]: <FaInstagram />,
+  [SocialType.Website]: <FaGlobe />,
 };
 
-const SocialMedia = ({ type, url }: { type: string; url: string }) => {
+const SocialMedia = ({
+  type,
+  url,
+  isDark,
+}: {
+  type: string;
+  url: string;
+  isDark?: boolean;
+}) => {
+  switch (type) {
+    case SocialType.Facebook:
+    case SocialType.Linkedin:
+    case SocialType.Instagram:
+    case SocialType.Website:
+      break;
+    default:
+      return null;
+  }
+
   return (
     <div>
       <Link
         href={url}
-        className="w-20 h-20 grid place-items-center rounded-full text-[2.75rem] border-[1px] border-primary dark:border-darkprimary"
+        className={`w-20 h-20 grid place-items-center rounded-full text-[2.75rem] border-[1px] ${
+          isDark
+            ? "border-darkprimary text-darkprimary"
+            : "border-primary text-primary dark:border-darkprimary dark:text-darkprimary"
+        } hover:opacity-80 hover:text-5xl transition-all duration-300`}
       >
-        {socialType[type as SocialType]}
+        {socialIcons[type]}
       </Link>
     </div>
   );

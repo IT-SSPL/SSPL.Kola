@@ -7,7 +7,7 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255; */
   --text-color: #252525;
-  --background: url("/background-light.svg");
+  --background: url("/background-light.jpg");
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,7 +33,7 @@
 
 [style="color-scheme: dark;"] {
   --text-color: #f6f4f9;
-  --background: url("/background-dark.svg");
+  --background: url("/background-dark.jpg");
 }
 
 body {

@@ -13,7 +13,11 @@ const Home = () => {
   return (
     // TODO: Edit this to be more user friendly
     <main className="flex min-h-screen flex-col items-center justify-between">
-      <Header title={"KOŁA \nNAUKOWE"} subtitle={"POLITECHNIKI ŁÓDZKIEJ"} />
+      <Header
+        title={"KOŁA \nNAUKOWE"}
+        subtitle={"POLITECHNIKI ŁÓDZKIEJ"}
+        style={"my-8"}
+      />
       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         <Suspense fallback={<div>Loading...</div>}>
           {data.faculties.data.map(({ attributes }) => (

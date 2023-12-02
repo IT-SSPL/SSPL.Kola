@@ -25,7 +25,7 @@ const Page = () => {
             <Suspense fallback={<div>Loading...</div>}>
               <div className="flex flex-col md:flex-row gap-1 md:gap-2">
                 <h3 className="font-extrabold md:text-right">E-mail:</h3>
-                <a href="mailto:ksztalcenie@samorzad.p.lodz.pl">
+                <a href={`mailto:${data.contact.data.attributes.email}`}>
                   {data.contact.data.attributes.email}
                 </a>
               </div>

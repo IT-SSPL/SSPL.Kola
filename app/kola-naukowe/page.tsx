@@ -3,6 +3,7 @@
 import { useSuspenseQuery } from "@apollo/client";
 import { FETCH_ACADEMIC_CIRCLES } from "../lib/fetchAcademicCircles";
 import { Suspense } from "react";
+import Header from "../components/Header";
 
 const Page = () => {
   const { data, error } = useSuspenseQuery(FETCH_ACADEMIC_CIRCLES);
@@ -11,7 +12,12 @@ const Page = () => {
 
   return (
     // TODO: Edit this to be more user friendly
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center justify-between">
+      <Header
+        title={"KOŁA \nNAUKOWE"}
+        subtitle={"POLITECHNIKI ŁÓDZKIEJ"}
+        style={"my-8"}
+      />
       <div>
         <Suspense fallback={<div>Loading...</div>}>
           {data.academicCircles.data.map(({ attributes }) => (

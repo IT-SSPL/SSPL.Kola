@@ -26,10 +26,26 @@ export interface IContact {
   };
 }
 
+export interface IFooter {
+  name: string;
+  phone_number: string;
+  street: string;
+  email: string;
+  logo?: {
+    data: {
+      attributes: {
+        name: string;
+        url: string;
+      };
+    };
+  };
+  social_media?: ISocialMedia[];
+}
+
 export interface IAcademicCircle {
   name: string;
   description: string;
-  logo: {
+  logo?: {
     data: {
       attributes: {
         name: string;
@@ -49,5 +65,5 @@ export interface IAcademicCircle {
     room: string;
     street: string;
   };
-  social_media: ISocialMedia[];
+  social_media?: ISocialMedia[];
 }
