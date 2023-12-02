@@ -1,7 +1,7 @@
 import { TypedDocumentNode, gql } from "@apollo/client";
 import { IAcademicCircle, IFaculty } from "./definitions";
 
-interface DataFuzzySearch {
+export interface DataFuzzySearch {
   search: {
     academicCircles: {
       data: {

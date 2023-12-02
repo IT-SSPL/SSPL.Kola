@@ -9,7 +9,7 @@ import { Suspense } from "react";
 import Header from "../components/Header";
 import InfoCard from "../components/InfoCard";
 import { useSearchParams } from "next/navigation";
-import { FETCH_FUZZY_SEARCH } from "../lib/fetchFuzzySearch";
+import { DataFuzzySearch, FETCH_FUZZY_SEARCH } from "../lib/fetchFuzzySearch";
 import Masonry from "react-masonry-css";
 import FacultyBadge from "../components/FacultyBadge";
 
@@ -67,14 +67,16 @@ const Page = () => {
           style={{ padding: "1rem 0 0 0" }}
         >
           {query
-            ? data.search.academicCircles.data.map(({ attributes }) => (
-                <InfoCard
-                  key={attributes.name}
-                  photoUrl={attributes.logo?.data}
-                  title={attributes.name}
-                  pathUrl={`/kola-naukowe/${attributes.slug}`}
-                />
-              ))
+            ? (data as DataFuzzySearch).search.academicCircles.data.map(
+                ({ attributes }) => (
+                  <InfoCard
+                    key={attributes.name}
+                    photoUrl={attributes.logo?.data}
+                    title={attributes.name}
+                    pathUrl={`/kola-naukowe/${attributes.slug}`}
+                  />
+                )
+              )
             : (data as unknown as DataAcademicCircles).academicCircles.data.map(
                 ({ attributes }) => (
                   <InfoCard
