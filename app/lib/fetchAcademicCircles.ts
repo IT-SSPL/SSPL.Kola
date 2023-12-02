@@ -1,15 +1,28 @@
 import { TypedDocumentNode, gql } from "@apollo/client";
-import { IAcademicCircle } from "./definitions";
+import { IAcademicCircle, IFaculty } from "./definitions";
 
-interface Data {
+export interface DataAcademicCircles {
   academicCircles: {
     data: {
       attributes: IAcademicCircle;
     }[];
+    meta: {
+      pagination: {
+        page: number;
+        pageSize: number;
+        pageCount: number;
+        total: number;
+      };
+    };
+  };
+  faculties: {
+    data: {
+      attributes: IFaculty;
+    }[];
   };
 }
 
-const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<Data> = gql`
+const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<DataAcademicCircles> = gql`
   query {
     academicCircles {
       data {
@@ -33,6 +46,14 @@ const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<Data> = gql`
           pageSize
           pageCount
           total
+        }
+      }
+    }
+    faculties {
+      data {
+        attributes {
+          abbreviation
+          name
         }
       }
     }

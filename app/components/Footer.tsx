@@ -36,7 +36,7 @@ const Footer = () => {
             <a href={`mailto:${tData.email}`}>{tData.email}</a>
           </div>
         </div>
-        {tData.social_media && (
+        {tData.social_media && tData.social_media?.length !== 0 && (
           <div className="text-center text-lg md:text-base mt-8 md:mt-12 lg:mt-8">
             NASZE MEDIA SPOŁECZNOŚCIOWE
             <div className="flex flex-row justify-center gap-6 mt-4">

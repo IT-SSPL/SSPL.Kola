@@ -3,36 +3,44 @@ import Link from "next/link";
 import { mulish, rubik_mono_one } from "../fonts";
 
 type InfoCardProps = {
-  photoUrl: string;
+  photoUrl?: {
+    attributes: {
+      name: string;
+      url: string;
+    };
+  };
   title: string;
   description?: string;
+  pathUrl?: string;
 };
 
-const InfoCard = ({ photoUrl, title, description }: InfoCardProps) => {
+const InfoCard = ({ photoUrl, title, description, pathUrl }: InfoCardProps) => {
   return (
-    <Link
-      href={`/kola-naukowe`}
-      className="group flex flex-col gap-4 justify-start items-center sm:px-4 sm:py-3 md:px-7 md:py-6 px-11 py-9 bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
-      style={{ backdropFilter: "blur(10px)" }}
-    >
-      <Image
-        src={photoUrl}
-        alt={title}
-        width={500}
-        height={500}
-        className="rounded-2xl w-56 h-56"
-      />
-      <h3
-        className={`text-center text-3xl sm:text-4xl ${rubik_mono_one.className} gradient-for-text group-hover:text-transparent transition-colors duration-300`}
+    <div>
+      <Link
+        href={pathUrl ? pathUrl : `/kola-naukowe`}
+        className="group flex flex-col gap-4 justify-start items-center sm:px-4 sm:py-3 md:px-7 md:py-6 px-11 py-9 bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
+        style={{ backdropFilter: "blur(10px)" }}
       >
-        {title}
-      </h3>
-      {description && (
-        <p className={`text-center text-lg ${mulish.className}`}>
-          {description}
-        </p>
-      )}
-    </Link>
+        <Image
+          src={photoUrl ? photoUrl.attributes.url : "/card-placeholder.jpg"}
+          alt={title}
+          width={500}
+          height={500}
+          className="rounded-2xl w-56 h-56"
+        />
+        <h3
+          className={`text-center text-3xl sm:text-4xl ${rubik_mono_one.className} gradient-for-text group-hover:text-transparent transition-colors duration-300`}
+        >
+          {title}
+        </h3>
+        {description && (
+          <p className={`text-center text-lg ${mulish.className}`}>
+            {description}
+          </p>
+        )}
+      </Link>
+    </div>
   );
 };
 
