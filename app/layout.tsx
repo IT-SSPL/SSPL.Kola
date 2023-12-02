@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { mulish } from "./fonts";
 import "./globals.css";
-import Navbar from "./components/Navbar";
+import NavBar from "./components/NavBar";
 import Provider from "./lib/provider";
 import Footer from "./components/Footer";
 
@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={mulish.className}>
         <Provider>
           <div className="mx-10 md:mx-20 lg:mx-24 3xl:mx-40">
-            <Navbar />
+            <NavBar />
             {children}
           </div>
           <Footer />

@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { rubik_mono_one } from "../fonts";
 import ThemeButton from "./ThemeButton";
-import { BurgerMenu } from "./BurgerMenu";
-import { useState } from "react";
+import BurgerMenu from "./BurgerMenu";
+import SearchBar from "./SearchBar";
 
 const menuItems = [
   { name: "Jednostki", path: "/" },
@@ -13,8 +14,9 @@ const menuItems = [
   { name: "Kontakt", path: "/kontakt" },
 ];
 
-const Navbar = () => {
-  const [open, setOpen] = useState(false);
+const NavBar = () => {
+  const [openMenu, setOpenMenu] = useState(false);
+  const [openSearch, setOpenSearch] = useState(false);
 
   return (
     <nav className="relative pt-8 pb-4 grid grid-cols-4 border-b-[1px] border-primary dark:border-darkprimary 2xl:pt-10 2xl:pb-6">
@@ -28,8 +30,8 @@ const Navbar = () => {
       </Link>
       <ul
         className={`justify-self-center text-center col-span-2 ${
-          open
-            ? "absolute w-full top-28 p-10 flex flex-col bg-darkprimary dark:bg-primary"
+          openMenu
+            ? "absolute w-full top-28 p-5 flex flex-col bg-darkprimary dark:bg-primary rounded-2xl"
             : "hidden lg:flex"
         } lg:w-auto`}
       >
@@ -38,17 +40,18 @@ const Navbar = () => {
             className="grid place-items-center text-[#797979] text-lg hover:text-primary dark:hover:text-darkprimary lg:text-base 2xl:text-xl"
             key={name}
           >
-            <Link href={path}>
+            <Link href={path} onClick={() => setOpenMenu(false)}>
               <p className="px-2 py-2 mx-2 lg:px-2">{name}</p>
             </Link>
           </li>
         ))}
       </ul>
-      <span className="flex gap-3 col-span-2 justify-self-end lg:col-span-1">
+      <span className="w-full flex gap-3 col-span-2 justify-self-end justify-end lg:col-span-1">
+        <SearchBar open={openSearch} setOpen={setOpenSearch} />
         <ThemeButton />
         <BurgerMenu
-          open={open}
-          setOpen={setOpen}
+          open={openMenu}
+          setOpen={setOpenMenu}
           style="inline-flex lg:hidden"
         />
       </span>
@@ -56,4 +59,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default NavBar;

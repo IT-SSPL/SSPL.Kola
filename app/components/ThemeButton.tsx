@@ -11,7 +11,7 @@ const ThemeButton = () => {
   // const currentTheme = theme === "system" ? systemTheme : theme;
 
   return (
-    <div className="relative inline-flex items-center cursor-pointer">
+    <div className="relative inline-flex items-center">
       <button
         onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
       >

@@ -12,20 +12,21 @@ const Home = () => {
 
   return (
     // TODO: Edit this to be more user friendly
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center">
       <Header
         title={"KOŁA \nNAUKOWE"}
         subtitle={"POLITECHNIKI ŁÓDZKIEJ"}
-        style={"my-8"}
+        style={"mt-2 mb-8"}
       />
       <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         <Suspense fallback={<div>Loading...</div>}>
           {data.faculties.data.map(({ attributes }) => (
             <InfoCard
               key={attributes.name}
-              photoUrl={attributes.logo.data.attributes.url}
+              photoUrl={attributes.logo.data}
               title={attributes.abbreviation}
               description={attributes.name}
+              pathUrl={`/kola-naukowe?query=${attributes.abbreviation.toLowerCase()}`}
             />
           ))}
         </Suspense>

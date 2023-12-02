@@ -1,10 +1,10 @@
-export interface BurgerMenuProps {
-  style: string;
+interface BurgerMenuProps {
+  style?: string;
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const BurgerMenu = ({ open, setOpen, style }: BurgerMenuProps) => {
+const BurgerMenu = ({ open, setOpen, style }: BurgerMenuProps) => {
   return (
     <div className={`z-10 items-center ${style}`}>
       <button
@@ -30,3 +30,5 @@ export const BurgerMenu = ({ open, setOpen, style }: BurgerMenuProps) => {
     </div>
   );
 };
+
+export default BurgerMenu;
