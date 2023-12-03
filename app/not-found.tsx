@@ -5,7 +5,7 @@ const NotFound = () => {
   return (
     <div className="h-[50vh] mt-28 flex flex-col items-center justify-center text-center">
       <div>
-        <h1 className="inline-block mr-5 pr-6 border-r-[1px] border-primary text-2xl font-bold">
+        <h1 className="inline-block mr-5 pr-6 border-r-[1px] border-primary dark:border-darkprimary  text-2xl font-bold">
           404
         </h1>
         <div className="inline-block">
@@ -20,5 +20,3 @@ const NotFound = () => {
 };
 
 export default NotFound;
-
-//vertical-align: top; line-height: 49px

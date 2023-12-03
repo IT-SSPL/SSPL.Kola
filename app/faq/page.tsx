@@ -20,7 +20,7 @@ const Page = () => {
         <ContentContainer style={"flex flex-col gap-3"}>
           <Suspense fallback={<div>Loading...</div>}>
             {data.faqQuestions.data.map(({ attributes }) => (
-              <details key={attributes.question}>
+              <details key={attributes.question} className="lg:text-lg">
                 <summary className="font-bold">{attributes.question}</summary>
                 <p className="pt-5 pb-7">{attributes.answer}</p>
               </details>

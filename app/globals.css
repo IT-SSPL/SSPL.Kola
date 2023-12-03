@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 :root {
-  /* --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
   --text-color: #252525;
   --background: url("/background-light.jpg");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    /* --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0; */
-  }
+[style="color-scheme: dark;"] {
+  --text-color: #f6f4f9;
+  --background: url("/background-dark.jpg");
 }
 
+body {
+  color: var(--text-color);
+  background: var(--background);
+  background-size: cover;
+}
+
+/*------------------- Gradient -------------------*/
 .gradient {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
   --tw-gradient-from: #4c1d95 var(--tw-gradient-from-position);
@@ -39,17 +40,7 @@
   -webkit-background-clip: text;
 }
 
-[style="color-scheme: dark;"] {
-  --text-color: #f6f4f9;
-  --background: url("/background-dark.jpg");
-}
-
-body {
-  color: var(--text-color);
-  background: var(--background);
-  background-size: cover;
-}
-
+/*------------------- Masonry -------------------*/
 .my-masonry-grid {
   display: -webkit-box; /* Not needed if autoprefixing */
   display: -ms-flexbox; /* Not needed if autoprefixing */

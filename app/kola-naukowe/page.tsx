@@ -24,18 +24,21 @@ const Page = () => {
   const params = new URLSearchParams(searchParams);
 
   const query = params.get("query");
-  let fetchQuery;
-
-  if (query) {
-    fetchQuery = FETCH_FUZZY_SEARCH;
-  } else {
-    fetchQuery = FETCH_ACADEMIC_CIRCLES;
-  }
+  const fetchQuery = query ? FETCH_FUZZY_SEARCH : FETCH_ACADEMIC_CIRCLES;
 
   const { data, error } = useSuspenseQuery(
     fetchQuery,
     query ? { variables: { query: query } } : {}
   );
+
+  let tData;
+
+  if (data.search) {
+    const { search, ...restData } = data;
+    tData = { ...search, ...restData } as DataAcademicCircles & DataFuzzySearch;
+  } else {
+    tData = { ...data } as DataAcademicCircles & DataFuzzySearch;
+  }
 
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
@@ -66,27 +69,14 @@ const Page = () => {
           columnClassName="my-masonry-grid_column"
           style={{ padding: "1rem 0 0 0" }}
         >
-          {query
-            ? (
-                data as unknown as DataFuzzySearch
-              ).search.academicCircles.data.map(({ attributes }) => (
-                <InfoCard
-                  key={attributes.name}
-                  photoUrl={attributes.logo?.data}
-                  title={attributes.name}
-                  pathUrl={`/kola-naukowe/${attributes.slug}`}
-                />
-              ))
-            : (data as unknown as DataAcademicCircles).academicCircles.data.map(
-                ({ attributes }) => (
-                  <InfoCard
-                    key={attributes.name}
-                    photoUrl={attributes.logo?.data}
-                    title={attributes.name}
-                    pathUrl={`/kola-naukowe/${attributes.slug}`}
-                  />
-                )
-              )}
+          {tData.academicCircles.data.map(({ attributes }) => (
+            <InfoCard
+              key={attributes.name}
+              photoUrl={attributes.logo?.data}
+              title={attributes.name}
+              pathUrl={`/kola-naukowe/${attributes.slug}`}
+            />
+          ))}
         </Masonry>
       </Suspense>
     </main>
