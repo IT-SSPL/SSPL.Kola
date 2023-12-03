@@ -33,11 +33,11 @@ const Page = () => {
 
   let tData;
 
-  if (data.search) {
-    const { search, ...restData } = data;
-    tData = { ...search, ...restData } as DataAcademicCircles & DataFuzzySearch;
+  if ("search" in data) {
+    const { search, ...restData } = data as DataFuzzySearch;
+    tData = { ...search, ...restData };
   } else {
-    tData = { ...data } as DataAcademicCircles & DataFuzzySearch;
+    tData = { ...(data as DataAcademicCircles) };
   }
 
   if (error) return <p>Error :\</p>; // TODO: Replace with error page

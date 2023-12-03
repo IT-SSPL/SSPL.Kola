@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { mulish } from "./fonts";
-import "./globals.css";
 import NavBar from "./components/NavBar";
 import Provider from "./lib/provider";
 import Footer from "./components/Footer";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Koła Naukowe",
