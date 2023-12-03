@@ -67,16 +67,16 @@ const Page = () => {
           style={{ padding: "1rem 0 0 0" }}
         >
           {query
-            ? (data as DataFuzzySearch).search.academicCircles.data.map(
-                ({ attributes }) => (
-                  <InfoCard
-                    key={attributes.name}
-                    photoUrl={attributes.logo?.data}
-                    title={attributes.name}
-                    pathUrl={`/kola-naukowe/${attributes.slug}`}
-                  />
-                )
-              )
+            ? (
+                data as unknown as DataFuzzySearch
+              ).search.academicCircles.data.map(({ attributes }) => (
+                <InfoCard
+                  key={attributes.name}
+                  photoUrl={attributes.logo?.data}
+                  title={attributes.name}
+                  pathUrl={`/kola-naukowe/${attributes.slug}`}
+                />
+              ))
             : (data as unknown as DataAcademicCircles).academicCircles.data.map(
                 ({ attributes }) => (
                   <InfoCard
