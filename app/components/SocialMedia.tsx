@@ -38,7 +38,7 @@ const SocialMedia = ({
     <div>
       <Link
         href={url}
-        className={`w-20 h-20 grid place-items-center rounded-full text-[2.75rem] border-[1px] ${
+        className={`w-16 h-16 grid place-items-center rounded-full text-4xl border-[1px] ${
           isDark
             ? "border-darkprimary text-darkprimary"
             : "border-primary text-primary dark:border-darkprimary dark:text-darkprimary"
