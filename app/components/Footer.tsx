@@ -25,11 +25,11 @@ const Footer = () => {
                 alt={tData.logo?.data.attributes.name}
                 width={500}
                 height={500}
-                className="w-72 xl:w-80"
+                className="w-64 lg:w-72 xl:w-80"
               />
             )}
           </div>
-          <div className="flex flex-col text-lg md:text-end xl:text-xl ">
+          <div className="flex flex-col md:text-end lg:text-lg 4xl:text-xl">
             <span className="font-bold">{tData.name}</span>
             <span>tel. {tData.phone_number}</span>
             <span className="whitespace-pre-line">{tData.street}</span>

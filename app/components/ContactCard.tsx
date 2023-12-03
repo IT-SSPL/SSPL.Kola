@@ -6,7 +6,7 @@ import ContentContainer from "./ContentContainer";
 const ContactCard = ({ email, address }: IContact) => {
   return (
     <ContentContainer style={"flex-col md:flex-row justify-between group"}>
-      <div className="flex text-lg lg:text-xl flex-col gap-2">
+      <div className="flex text-lg flex-col gap-2">
         <Suspense fallback={<div>Loading...</div>}>
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
             <h3 className="font-extrabold md:text-right">E-mail:</h3>
