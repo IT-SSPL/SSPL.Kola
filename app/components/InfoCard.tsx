@@ -19,7 +19,7 @@ const InfoCard = ({ photoUrl, title, description, pathUrl }: InfoCardProps) => {
     <div>
       <Link
         href={pathUrl ? pathUrl : `/kola-naukowe`}
-        className="group flex flex-col gap-4 justify-start items-center sm:px-4 sm:py-3 md:px-7 md:py-6 px-11 py-9 bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
+        className="group flex flex-col gap-4 justify-start items-center h-full sm:px-4 sm:py-3 md:px-7 md:py-6 px-11 py-9 bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
         style={{ backdropFilter: "blur(10px)" }}
       >
         <Image

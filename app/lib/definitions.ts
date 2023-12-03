@@ -67,3 +67,8 @@ export interface IAcademicCircle {
   };
   social_media?: ISocialMedia[];
 }
+
+export interface IFaqQuestion {
+  question: string;
+  answer: string;
+}
