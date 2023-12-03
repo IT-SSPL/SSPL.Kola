@@ -45,6 +45,7 @@ export interface IFooter {
 export interface IAcademicCircle {
   name: string;
   description: string;
+  president?: string;
   logo?: {
     data: {
       attributes: {

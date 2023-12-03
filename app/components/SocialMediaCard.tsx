@@ -12,9 +12,9 @@ const SocialMediaCard = ({ socials }: SocialMediaCardProps) => {
     <ContentContainer
       style={"font-semibold justify-between group flex-col md:flex-row gap-3"}
     >
-      <div className="flex items-center gap-5">
+      <div className="mb-2 flex items-center gap-5 md:mb-0">
         <p className="text-xl uppercase">Poznaj nas</p>
-        <p className="relative text-3xl transition-all duration-300 group-hover:translate-x-10">
+        <p className="hidden md:block relative text-3xl transition-all duration-300 group-hover:translate-x-10">
           <HiArrowRight />
         </p>
       </div>
