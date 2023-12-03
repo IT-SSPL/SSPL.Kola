@@ -16,8 +16,8 @@ const ContactCard = ({ email, address }: IContact) => {
             <h3 className="font-extrabold md:text-right">Adres:</h3>
             <div className="flex flex-col gap-1">
               <p>
-                {address.building}{" "}
-                {address.room && <span>/{address.room}</span>}
+                {address.building}
+                {address.room && <span>, Sala {address.room}</span>}
               </p>
               <p>Kampus {address.campus}</p>
               <p>{address.street}</p>
