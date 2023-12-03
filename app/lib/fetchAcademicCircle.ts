@@ -36,6 +36,7 @@ const FETCH_ACADEMIC_CIRCLE: TypedDocumentNode<Data, Variables> = gql`
               }
             }
           }
+          email
           address {
             building
             campus

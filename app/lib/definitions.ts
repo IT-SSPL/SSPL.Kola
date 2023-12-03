@@ -59,6 +59,7 @@ export interface IAcademicCircle {
       attributes: IFaculty;
     };
   };
+  email: string;
   address: {
     building: string;
     campus: string;
