@@ -15,11 +15,12 @@ interface Variables {
 
 const FETCH_ACADEMIC_CIRCLE: TypedDocumentNode<Data, Variables> = gql`
   query academicCircles($slug: String) {
-    academicCircles(filters: { name: { contains: $slug } }) {
+    academicCircles(filters: { slug: { contains: $slug } }) {
       data {
         attributes {
           name
           description
+          president
           logo {
             data {
               attributes {
@@ -36,6 +37,7 @@ const FETCH_ACADEMIC_CIRCLE: TypedDocumentNode<Data, Variables> = gql`
               }
             }
           }
+          email
           address {
             building
             campus
