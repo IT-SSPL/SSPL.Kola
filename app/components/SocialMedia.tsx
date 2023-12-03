@@ -42,7 +42,7 @@ const SocialMedia = ({
           isDark
             ? "border-darkprimary text-darkprimary"
             : "border-primary text-primary dark:border-darkprimary dark:text-darkprimary"
-        } hover:opacity-80 hover:text-5xl transition-all duration-300`}
+        } hover:opacity-80 hover:text-[2.7rem] transition-all duration-300`}
       >
         {socialIcons[type]}
       </Link>
