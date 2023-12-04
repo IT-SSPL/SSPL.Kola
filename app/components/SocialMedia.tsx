@@ -38,11 +38,11 @@ const SocialMedia = ({
     <div>
       <Link
         href={url}
-        className={`w-16 h-16 grid place-items-center rounded-full text-4xl border-[1px] ${
+        className={`w-12 h-12 grid place-items-center rounded-full text-3xl border-[1px] sm:w-16 sm:h-16 sm:text-4xl ${
           isDark
             ? "border-darkprimary text-darkprimary"
             : "border-primary text-primary dark:border-darkprimary dark:text-darkprimary"
-        } hover:opacity-80 hover:text-[2.7rem] transition-all duration-300`}
+        } hover:opacity-80 hover:text-[2.1rem] sm:hover:text-[2.7rem] transition-all duration-300`}
       >
         {socialIcons[type]}
       </Link>

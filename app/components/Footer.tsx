@@ -15,7 +15,7 @@ const Footer = () => {
   if (!mounted) return null;
 
   return (
-    <footer className="flex flex-col bg-[#252525] mt-28 pt-12 pb-12 px-20 text-darkprimary md:px-28 lg:pb-10 lg:px-40 3xl:px-64 4xl:px-72 shadow-center-xl">
+    <footer className="flex flex-col bg-[#252525] mt-28 pt-12 pb-12 px-10 sm:px-20 text-darkprimary md:px-28 lg:pb-10 lg:px-40 3xl:px-64 4xl:px-72 shadow-center-xl">
       <Suspense fallback={<div>Loading...</div>}>
         <div className="flex flex-col gap-10 justify-between md:flex-row">
           <div className="pointer-events-none">
@@ -39,7 +39,7 @@ const Footer = () => {
         {tData.social_media && tData.social_media?.length !== 0 && (
           <div className="text-center text-lg md:text-base mt-8 md:mt-12 lg:mt-8">
             NASZE MEDIA SPOŁECZNOŚCIOWE
-            <div className="flex flex-row justify-center gap-6 mt-4">
+            <div className="flex flex-row justify-center gap-4 sm:gap-6 mt-4">
               {tData.social_media.map(({ url, type }) => (
                 <SocialMedia key={url} type={type} url={url} isDark />
               ))}

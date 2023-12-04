@@ -1,6 +1,7 @@
-import { CiSearch } from "react-icons/ci";
+import { CiLogout, CiSearch } from "react-icons/ci";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+import { useState } from "react";
 
 interface SearchBarProps {
   open: boolean;
@@ -8,11 +9,13 @@ interface SearchBarProps {
 }
 
 const SearchBar = ({ open, setOpen }: SearchBarProps) => {
+  const [term, setTerm] = useState("");
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term) => {
+    setOpen(false);
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("query", term);
@@ -25,26 +28,41 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
         pathname === "/kola-naukowe" ? "" : "kola-naukowe"
       }?${params.toString()}`
     );
-  }, 500);
+    setTerm("");
+  }, 800);
 
   return (
     <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      className={`w-full relative inline-flex justify-end items-center z-10`}
+      // onMouseEnter={() => setOpen(true)}
+      // onMouseLeave={() => setOpen(false)}
+      className={`w-full inline-flex justify-end items-center z-20`}
     >
-      <input
-        type="text"
-        className={`bg-transparent outline-none border-b-[1px] border-primary dark:border-darkprimary transition-all duration-500 ease-in-out mr-2
-        ${open ? "w-40 md:w-60 lg:w-28 xl:md:w-60" : "w-0"}`}
-        placeholder="Szukaj..."
-        onChange={(e) => {
-          handleSearch(e.target.value);
+      <div
+        className={`search-bg top-0 left-0 fixed w-screen min-h-screen flex justify-center
+      items-center bg-[#F7F5FAF8] dark:bg-[#252525F8] transition-all duration-500 ease-in-out ${
+        open ? "visible opacity-100" : "invisible opacity-0"
+      }`}
+      >
+        <input
+          type="text"
+          className={`w-3/4 pb-1 bg-transparent outline-none border-b-[1px] border-primary dark:border-darkprimary text-2xl md:w-1/2
+        `}
+          placeholder="Szukaj..."
+          value={term}
+          onChange={(e) => {
+            setTerm(e.target.value);
+            handleSearch(e.target.value);
+          }}
+        />
+      </div>
+
+      <button
+        className={`text-[2rem] z-30 ${open && "fixed"}`}
+        onClick={() => {
+          setOpen(!open);
         }}
-        onClick={() => setOpen(true)}
-      />
-      <button className="text-[2rem]">
-        <CiSearch />
+      >
+        {open ? <CiLogout /> : <CiSearch />}
       </button>
     </div>
   );

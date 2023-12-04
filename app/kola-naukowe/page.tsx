@@ -51,7 +51,7 @@ const Page = () => {
           style={"mt-2"}
         />
         <Suspense fallback={<div>Loading...</div>}>
-          <div className="flex flex-wrap justify-center gap-2 pb-6">
+          <div className="flex flex-wrap justify-center gap-2 pb-6 pt-4 sm:pt-0">
             {data.faculties.data.map(({ attributes }) => (
               <FacultyBadge
                 key={attributes.name}

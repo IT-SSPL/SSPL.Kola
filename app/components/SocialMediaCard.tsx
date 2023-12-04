@@ -18,7 +18,7 @@ const SocialMediaCard = ({ socials }: SocialMediaCardProps) => {
           <HiArrowRight />
         </p>
       </div>
-      <div className="flex gap-6 md:gap-10 lg:gap-14">
+      <div className="flex gap-4 sm:gap-6 md:gap-10 lg:gap-14">
         {socials.map((social) => (
           <SocialMedia key={social.type} type={social.type} url={social.url} />
         ))}
