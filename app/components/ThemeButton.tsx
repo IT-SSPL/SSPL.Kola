@@ -8,7 +8,7 @@ const ThemeButton = () => {
   useEffect(() => {
     setMounted(true);
 
-    if (systemTheme) {
+    if (systemTheme && theme === "system") {
       setTheme(systemTheme);
     }
   }, [setTheme, systemTheme]);
