@@ -10,7 +10,7 @@ interface Data {
 }
 const FETCH_FACULTIES: TypedDocumentNode<Data> = gql`
   query {
-    faculties {
+    faculties(sort: "id") {
       data {
         attributes {
           abbreviation

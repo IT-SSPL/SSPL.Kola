@@ -56,6 +56,7 @@ const Page = () => {
               <FacultyBadge
                 key={attributes.name}
                 title={attributes.abbreviation}
+                clicked={attributes.abbreviation.toLowerCase() === query}
                 pathUrl={`/kola-naukowe?query=${attributes.abbreviation.toLowerCase()}`}
               />
             ))}

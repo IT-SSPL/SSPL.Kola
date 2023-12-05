@@ -57,7 +57,7 @@ const FETCH_FUZZY_SEARCH: TypedDocumentNode<DataFuzzySearch, Variables> = gql`
         }
       }
     }
-    faculties {
+    faculties(sort: "id") {
       data {
         attributes {
           abbreviation

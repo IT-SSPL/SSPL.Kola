@@ -5,10 +5,14 @@ const ThemeButton = () => {
   const { systemTheme, theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+  useEffect(() => {
+    setMounted(true);
 
-  // const currentTheme = theme === "system" ? systemTheme : theme;
+    if (systemTheme) {
+      setTheme(systemTheme);
+    }
+  }, [setTheme, systemTheme]);
+  if (!mounted) return null;
 
   return (
     <div className="relative inline-flex items-center">

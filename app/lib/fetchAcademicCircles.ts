@@ -49,7 +49,7 @@ const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<DataAcademicCircles> = gql`
         }
       }
     }
-    faculties {
+    faculties(sort: "id") {
       data {
         attributes {
           abbreviation
