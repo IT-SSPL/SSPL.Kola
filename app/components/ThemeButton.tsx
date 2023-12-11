@@ -11,7 +11,7 @@ const ThemeButton = () => {
     if (systemTheme && theme === "system") {
       setTheme(systemTheme);
     }
-  }, [setTheme, systemTheme]);
+  }, [setTheme, systemTheme, theme]);
   if (!mounted) return null;
 
   return (

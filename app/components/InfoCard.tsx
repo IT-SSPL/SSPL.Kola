@@ -12,9 +12,16 @@ type InfoCardProps = {
   title: string;
   description?: string;
   pathUrl?: string;
+  isCircle?: boolean;
 };
 
-const InfoCard = ({ photoUrl, title, description, pathUrl }: InfoCardProps) => {
+const InfoCard = ({
+  photoUrl,
+  title,
+  description,
+  pathUrl,
+  isCircle,
+}: InfoCardProps) => {
   return (
     <div>
       <Link
@@ -30,7 +37,13 @@ const InfoCard = ({ photoUrl, title, description, pathUrl }: InfoCardProps) => {
           className="rounded-2xl w-56 h-56"
         />
         <h3
-          className={`text-center text-3xl sm:text-4xl ${rubik_mono_one.className} gradient-for-text group-hover:text-transparent transition-colors duration-300`}
+          className={`${
+            isCircle
+              ? `text-3xl sm:text-2xl mt-6 sm:mt-2`
+              : `text-3xl sm:text-4xl`
+          } text-center ${
+            rubik_mono_one.className
+          } gradient-for-text group-hover:text-transparent mt-2 transition-colors duration-300`}
         >
           {title}
         </h3>

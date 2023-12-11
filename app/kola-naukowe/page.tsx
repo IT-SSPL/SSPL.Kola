@@ -76,6 +76,7 @@ const Page = () => {
               photoUrl={attributes.logo?.data}
               title={attributes.name}
               pathUrl={`/kola-naukowe/${attributes.slug}`}
+              isCircle
             />
           ))}
         </Masonry>
