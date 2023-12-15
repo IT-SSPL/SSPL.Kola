@@ -23,8 +23,8 @@ export interface DataAcademicCircles {
 }
 
 const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<DataAcademicCircles> = gql`
-  query {
-    academicCircles {
+  query academicCircles {
+    academicCircles(filters: { parent_circle: { slug: null } }) {
       data {
         attributes {
           name

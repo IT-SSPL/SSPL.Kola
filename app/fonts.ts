@@ -1,10 +1,8 @@
-import { Mulish, Rubik_Mono_One } from "next/font/google";
+import { Mulish } from "next/font/google";
+import localFont from "next/font/local";
 
 export const mulish = Mulish({
   subsets: ["latin"],
 });
 
-export const rubik_mono_one = Rubik_Mono_One({
-  weight: "400",
-  subsets: ["latin"],
-});
+export const poller_one = localFont({ src: "./fonts/PollerOne.ttf" });

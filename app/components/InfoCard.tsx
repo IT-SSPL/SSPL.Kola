@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { mulish, rubik_mono_one } from "../fonts";
+import { mulish, poller_one } from "../fonts";
 
 type InfoCardProps = {
   photoUrl?: {
@@ -42,7 +42,7 @@ const InfoCard = ({
               ? `text-3xl sm:text-2xl mt-6 sm:mt-2`
               : `text-3xl sm:text-4xl`
           } text-center ${
-            rubik_mono_one.className
+            poller_one.className
           } gradient-for-text group-hover:text-transparent mt-2 transition-colors duration-300`}
         >
           {title}

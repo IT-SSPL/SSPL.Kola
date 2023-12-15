@@ -60,6 +60,23 @@ export interface IAcademicCircle {
       attributes: IFaculty;
     };
   };
+  subsections: {
+    data: {
+      attributes: {
+        name: string;
+        description: string;
+        logo?: {
+          data: {
+            attributes: {
+              name: string;
+              url: string;
+            };
+          };
+        };
+        slug: string;
+      };
+    }[];
+  };
   email: string;
   address: {
     building: string;
