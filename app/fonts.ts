@@ -5,4 +5,4 @@ export const mulish = Mulish({
   subsets: ["latin"],
 });
 
-export const poller_one = localFont({ src: "./fonts/PollerOne.ttf" });
+export const poller_one = localFont({ src: "./fonts/PollerOne-extend.ttf" });
