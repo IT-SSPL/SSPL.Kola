@@ -2,8 +2,9 @@
 
 import ContactCard from "@/app/components/ContactCard";
 import ContentContainer from "@/app/components/ContentContainer";
+import InfoCard from "@/app/components/InfoCard";
 import SocialMediaCard from "@/app/components/SocialMediaCard";
-import { rubik_mono_one } from "@/app/fonts";
+import { poller_one } from "@/app/fonts";
 import { FETCH_ACADEMIC_CIRCLE } from "@/app/lib/fetchAcademicCircle";
 import { useSuspenseQuery } from "@apollo/client";
 import Image from "next/image";
@@ -21,12 +22,11 @@ const Page = ({ params }: { params: { slug: string } }) => {
   const shortData = data.academicCircles.data[0].attributes;
 
   return (
-    // TODO: Edit this to be more user friendly
     <main className="flex min-h-screen flex-col items-center gap-7">
       <Suspense fallback={<div>Loading...</div>}>
         <div className="w-full text-center p-7 md:p-11 gradient rounded-b-3xl">
           <h1
-            className={`text-2xl md:text-4xl font-bold text-white ${rubik_mono_one.className}`}
+            className={`text-2xl md:text-4xl font-bold text-white ${poller_one.className}`}
           >
             {shortData.name}
           </h1>
@@ -50,10 +50,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </ContentContainer>
 
         <ContentContainer key={shortData.name}>
-          <div className="flex justify-between items-center gap-14">
+          <div className="flex justify-between w-full items-center gap-14">
             <div className="flex flex-col gap-3 w-full md:w-[70%]">
               <p className="font-semibold">
-                Koło funkcjonujące na Wydziale:{" "}
+                Funkcjonujące na Wydziale:{" "}
                 {shortData.faculty.data.attributes.abbreviation}
               </p>
               <span>
@@ -80,10 +80,30 @@ const Page = ({ params }: { params: { slug: string } }) => {
               }
               width={200}
               height={200}
-              className="rounded-2xl w-[30%] h-auto hidden md:block"
+              className="rounded-2xl w-[30%] h-auto hidden md:block self-start"
             />
           </div>
         </ContentContainer>
+        {shortData.subsections.data.length !== 0 && (
+          <section className="w-full">
+            <h2
+              className={`mb-6 text-3xl uppercase text-center ${poller_one.className}`}
+            >
+              Sekcje:
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+              {shortData.subsections.data.map(({ attributes }) => (
+                <InfoCard
+                  key={attributes.name}
+                  photoUrl={attributes.logo?.data}
+                  title={attributes.name}
+                  pathUrl={`/kola-naukowe/${attributes.slug}`}
+                  isCircle
+                />
+              ))}
+            </div>
+          </section>
+        )}
         {shortData.social_media?.length !== 0 &&
           shortData.social_media?.length && (
             <SocialMediaCard socials={shortData.social_media} />

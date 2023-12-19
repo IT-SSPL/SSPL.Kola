@@ -37,6 +37,23 @@ const FETCH_ACADEMIC_CIRCLE: TypedDocumentNode<Data, Variables> = gql`
               }
             }
           }
+          subsections {
+            data {
+              attributes {
+                name
+                description
+                logo {
+                  data {
+                    attributes {
+                      name
+                      url
+                    }
+                  }
+                }
+                slug
+              }
+            }
+          }
           email
           address {
             building

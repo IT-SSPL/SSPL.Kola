@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { rubik_mono_one } from "../fonts";
+import { poller_one } from "../fonts";
 import ThemeButton from "./ThemeButton";
 import BurgerMenu from "./BurgerMenu";
 import SearchBar from "./SearchBar";
@@ -22,7 +22,7 @@ const NavBar = () => {
     <nav className="relative pt-8 pb-4 grid grid-cols-4 border-b-[1px] border-primary dark:border-darkprimary 2xl:pt-10 2xl:pb-6">
       <Link href="/" className="col-span-2 lg:col-span-1">
         <h1
-          className={`${rubik_mono_one.className} text-base lg:text-xl 2xl:text-2xl`}
+          className={`${poller_one.className} text-base lg:text-xl 2xl:text-2xl`}
         >
           KOŁA <br />
           NAUKOWE <span className="gradient-for-text text-transparent">PŁ</span>
@@ -31,7 +31,7 @@ const NavBar = () => {
       <ul
         className={`justify-self-center text-center col-span-2 ${
           openMenu
-            ? "absolute w-full top-28 p-5 flex flex-col bg-darkprimary dark:bg-primary rounded-2xl"
+            ? "absolute w-full top-28 p-5 flex flex-col bg-darkprimary dark:bg-primary rounded-2xl z-10"
             : "hidden lg:flex"
         } lg:w-auto`}
       >
