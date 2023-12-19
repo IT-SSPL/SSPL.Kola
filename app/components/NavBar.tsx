@@ -31,7 +31,7 @@ const NavBar = () => {
       <ul
         className={`justify-self-center text-center col-span-2 ${
           openMenu
-            ? "absolute w-full top-28 p-5 flex flex-col bg-darkprimary dark:bg-primary rounded-2xl"
+            ? "absolute w-full top-28 p-5 flex flex-col bg-darkprimary dark:bg-primary rounded-2xl z-10"
             : "hidden lg:flex"
         } lg:w-auto`}
       >
