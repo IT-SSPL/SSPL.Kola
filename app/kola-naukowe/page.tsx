@@ -12,6 +12,7 @@ import { useSearchParams } from "next/navigation";
 import { DataFuzzySearch, FETCH_FUZZY_SEARCH } from "../lib/fetchFuzzySearch";
 import Masonry from "react-masonry-css";
 import FacultyBadge from "../components/FacultyBadge";
+import BadgesSkeleton from "../components/Skeletons/BadgesSkeleton";
 
 const breakpointColumnsObj = {
   default: 3,
@@ -43,14 +44,14 @@ const Page = () => {
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
   return (
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="container mx-auto flex min-h-screen flex-col items-center">
       <div>
         <Header
           title={"KOŁA \nNAUKOWE"}
           subtitle={"POLITECHNIKI ŁÓDZKIEJ"}
           style={"mt-2"}
         />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<BadgesSkeleton />}>
           <div className="flex flex-wrap justify-center gap-2 pb-6 pt-4 sm:pt-0">
             {data.faculties.data.map(({ attributes }) => (
               <FacultyBadge

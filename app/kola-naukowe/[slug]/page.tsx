@@ -22,9 +22,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
   const shortData = data.academicCircles.data[0].attributes;
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-7">
+    <main className="container min-h-screen flex flex-col mx-auto items-center gap-7">
       <Suspense fallback={<div>Loading...</div>}>
-        <div className="w-full text-center p-7 md:p-11 gradient rounded-b-3xl">
+        <div className="w-full text-center mt-7 p-7 md:p-11 gradient rounded-3xl">
           <h1
             className={`text-2xl md:text-4xl font-bold text-white ${poller_one.className}`}
           >

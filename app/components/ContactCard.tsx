@@ -2,12 +2,13 @@ import { HiArrowLeft } from "react-icons/hi2";
 import { IContact } from "../lib/definitions";
 import { Suspense } from "react";
 import ContentContainer from "./ContentContainer";
+import TextSkeleton from "./Skeletons/TextSkeleton";
 
 const ContactCard = ({ email, address }: IContact) => {
   return (
     <ContentContainer style={"flex-col md:flex-row justify-between group"}>
       <div className="flex sm:text-lg flex-col gap-2">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<TextSkeleton />}>
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
             <h3 className="font-extrabold md:text-right">E-mail:</h3>
             <a href={`mailto:${email}`}>{email}</a>

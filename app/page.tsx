@@ -12,7 +12,7 @@ const Home = () => {
 
   return (
     // TODO: Edit this to be more user friendly
-    <main className="flex min-h-screen flex-col items-center">
+    <main className="container mx-auto flex min-h-screen flex-col items-center">
       <Header
         title={"KOŁA \nNAUKOWE"}
         subtitle={"POLITECHNIKI ŁÓDZKIEJ"}

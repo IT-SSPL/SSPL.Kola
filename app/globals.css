@@ -18,6 +18,22 @@ body {
   background-size: cover;
 }
 
+.answer a {
+  color: #9333ea;
+}
+
+@media (min-width: 1680px) {
+  .container {
+    max-width: 1680px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1920px;
+  }
+}
+
 /*------------------- Gradient -------------------*/
 .gradient {
   background-image: linear-gradient(to top right, var(--tw-gradient-stops));
@@ -46,7 +62,7 @@ body {
   display: -ms-flexbox; /* Not needed if autoprefixing */
   display: flex;
   margin-left: -1rem; /* gutter size offset */
-  width: 100%;
+  /* width: 100%; */
 }
 
 @media screen and (max-width: 768px) {
