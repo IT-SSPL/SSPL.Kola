@@ -25,11 +25,15 @@ const Page = () => {
   const params = new URLSearchParams(searchParams);
 
   const query = params.get("query");
+  const faculty = params.get("faculty");
+
   const fetchQuery = query ? FETCH_FUZZY_SEARCH : FETCH_ACADEMIC_CIRCLES;
 
   const { data, error } = useSuspenseQuery(
     fetchQuery,
-    query ? { variables: { query: query } } : {}
+    query
+      ? { variables: { query: query } }
+      : { variables: { query: faculty ? faculty : "" } }
   );
 
   let tData;
@@ -57,8 +61,8 @@ const Page = () => {
               <FacultyBadge
                 key={attributes.name}
                 title={attributes.abbreviation}
-                clicked={attributes.abbreviation.toLowerCase() === query}
-                pathUrl={`/kola-naukowe?query=${attributes.abbreviation.toLowerCase()}`}
+                clicked={attributes.abbreviation.toLowerCase() === faculty}
+                pathUrl={`/kola-naukowe?faculty=${attributes.abbreviation.toLowerCase()}`}
               />
             ))}
           </div>

@@ -23,7 +23,9 @@ const Page = () => {
           <Suspense fallback={<TextSkeleton />}>
             {data.faqQuestions.data.map(({ attributes }) => (
               <details key={attributes.question} className="lg:text-lg">
-                <summary className="font-bold">{attributes.question}</summary>
+                <summary className="font-bold cursor-pointer">
+                  {attributes.question}
+                </summary>
                 <Markdown className="pt-5 pb-7 answer">
                   {attributes.answer}
                 </Markdown>

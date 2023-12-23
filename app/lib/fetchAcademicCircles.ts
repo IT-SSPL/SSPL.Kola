@@ -22,9 +22,21 @@ export interface DataAcademicCircles {
   };
 }
 
-const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<DataAcademicCircles> = gql`
-  query academicCircles {
-    academicCircles(filters: { parent_circle: { slug: null } }) {
+interface Variables {
+  query: string;
+}
+
+const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<
+  DataAcademicCircles,
+  Variables
+> = gql`
+  query ($query: String!) {
+    academicCircles(
+      filters: {
+        parent_circle: { slug: null }
+        and: [{ temporary_faculty: { containsi: $query } }]
+      }
+    ) {
       data {
         attributes {
           name

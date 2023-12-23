@@ -26,7 +26,7 @@ const Home = () => {
               photoUrl={attributes.logo.data}
               title={attributes.abbreviation}
               description={attributes.name}
-              pathUrl={`/kola-naukowe?query=${attributes.abbreviation.toLowerCase()}`}
+              pathUrl={`/kola-naukowe?faculty=${attributes.abbreviation.toLowerCase()}`}
             />
           ))}
         </Suspense>
