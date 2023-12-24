@@ -10,6 +10,8 @@ import { useSuspenseQuery } from "@apollo/client";
 import Image from "next/image";
 import { Suspense } from "react";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const { data, error } = useSuspenseQuery(FETCH_ACADEMIC_CIRCLE, {
@@ -52,14 +54,18 @@ const Page = ({ params }: { params: { slug: string } }) => {
         <ContentContainer key={shortData.name}>
           <div className="flex justify-between w-full items-center gap-14">
             <div className="flex flex-col gap-3 w-full md:w-[70%]">
-              <p className="font-semibold">
+              <p className="font-semibold text-gray-500 italic">
                 Funkcjonujące na Wydziale:{" "}
                 {shortData.faculty.data.attributes.abbreviation}
               </p>
-              <span>
-                <span className="font-semibold">Opis koła studenckiego:</span>{" "}
-                <Markdown>{shortData.description}</Markdown>
-              </span>
+              <div className="markdown-style">
+                <span className="font-semibold text-[1.25rem]">
+                  Opis koła studenckiego:
+                </span>{" "}
+                <Markdown rehypePlugins={[remarkGfm, rehypeRaw]}>
+                  {shortData.description}
+                </Markdown>
+              </div>
               {shortData.president && (
                 <p>
                   <span className="font-semibold">Przewodniczący:</span>{" "}

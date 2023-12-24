@@ -26,7 +26,7 @@ const Page = () => {
                 <summary className="font-bold cursor-pointer">
                   {attributes.question}
                 </summary>
-                <Markdown className="pt-5 pb-7 answer">
+                <Markdown className="pt-3 pb-4 markdown-style">
                   {attributes.answer}
                 </Markdown>
               </details>
