@@ -7,6 +7,8 @@ import ContentContainer from "../components/ContentContainer";
 import Header from "../components/Header";
 import Markdown from "react-markdown";
 import TextSkeleton from "../components/Skeletons/TextSkeleton";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 
 const Page = () => {
   const { data, error } = useSuspenseQuery(FETCH_FAQ_QUESTIONS);
@@ -26,7 +28,10 @@ const Page = () => {
                 <summary className="font-bold cursor-pointer">
                   {attributes.question}
                 </summary>
-                <Markdown className="pt-3 pb-4 markdown-style">
+                <Markdown
+                  rehypePlugins={[remarkGfm, rehypeRaw]}
+                  className="pt-3 pb-4 markdown-style"
+                >
                   {attributes.answer}
                 </Markdown>
               </details>
