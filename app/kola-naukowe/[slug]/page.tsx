@@ -68,7 +68,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               </div>
               {shortData.president && (
                 <p>
-                  <span className="font-semibold">Przewodniczący:</span>{" "}
+                  <span className="font-semibold">Przewodnicząca/y:</span>{" "}
                   {shortData.president}
                 </p>
               )}
