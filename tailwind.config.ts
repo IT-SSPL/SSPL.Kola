@@ -16,6 +16,8 @@ const config: Config = {
         darkcard: "#5C5B5B",
         darkmarkdown: "#2B2529",
         markdown: "#e9e5e9",
+        highlight: "#9333ea",
+        active: "#7528bb",
       },
       boxShadow: {
         "center-md":

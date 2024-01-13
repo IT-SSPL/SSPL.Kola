@@ -9,10 +9,12 @@ const ContactCard = ({ email, address }: IContact) => {
     <ContentContainer style={"flex-col md:flex-row justify-between group"}>
       <div className="flex sm:text-lg flex-col gap-2">
         <Suspense fallback={<TextSkeleton />}>
-          <div className="flex flex-col md:flex-row gap-1 md:gap-2">
-            <h3 className="font-extrabold md:text-right">E-mail:</h3>
-            <a href={`mailto:${email}`}>{email}</a>
-          </div>
+          {email.endsWith("p.lodz.pl") && (
+            <div className="flex flex-col md:flex-row gap-1 md:gap-2">
+              <h3 className="font-extrabold md:text-right">E-mail:</h3>
+              <a href={`mailto:${email}`}>{email}</a>
+            </div>
+          )}
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
             <h3 className="font-extrabold md:text-right">Adres:</h3>
             <div className="flex flex-col gap-1">

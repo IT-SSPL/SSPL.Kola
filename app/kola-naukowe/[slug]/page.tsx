@@ -42,10 +42,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
             }
             alt={
               shortData.logo?.data
-                ? shortData.logo.data.attributes.name
-                : "Placeholder"
+                ? `Logo of the student science club ${shortData.name}`
+                : `Placeholder for the logo of the ${shortData.name} student science club`
             }
-            width={200} // TODO: Fix this
+            width={200}
             height={200}
             className="rounded-2xl w-full h-auto max-w-[300px]"
           />
@@ -81,8 +81,8 @@ const Page = ({ params }: { params: { slug: string } }) => {
               }
               alt={
                 shortData.logo?.data
-                  ? shortData.logo.data.attributes.name
-                  : "Placeholder"
+                  ? `Logo of the student science club ${shortData.name}`
+                  : `Placeholder for the logo of the ${shortData.name} student science club`
               }
               width={200}
               height={200}

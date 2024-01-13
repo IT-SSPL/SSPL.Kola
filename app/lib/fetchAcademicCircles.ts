@@ -36,6 +36,7 @@ const FETCH_ACADEMIC_CIRCLES: TypedDocumentNode<
         parent_circle: { slug: null }
         and: [{ temporary_faculty: { containsi: $query } }]
       }
+      sort: "name"
     ) {
       data {
         attributes {

@@ -22,7 +22,9 @@ const Footer = () => {
             {tData.logo?.data && (
               <Image
                 src={tData.logo?.data.attributes.url}
-                alt={tData.logo?.data.attributes.name}
+                alt={
+                  "Logo of the Student Government of Lodz University of Technology"
+                }
                 width={500}
                 height={500}
                 className="w-64 lg:w-72 xl:w-80"

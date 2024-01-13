@@ -114,12 +114,11 @@ body {
 }
 
 .markdown-style a {
-  color: #9333ea;
-  @apply transition-colors duration-150;
+  @apply transition-colors duration-150 text-highlight;
 }
 
 .markdown-style a:hover {
-  color: #7528bb;
+  @apply text-active;
 }
 
 .markdown-style blockquote {

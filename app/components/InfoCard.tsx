@@ -31,7 +31,11 @@ const InfoCard = ({
       >
         <Image
           src={photoUrl ? photoUrl.attributes.url : "/card-placeholder.jpg"}
-          alt={title}
+          alt={
+            photoUrl
+              ? `Logo of the student science club ${title}`
+              : `Placeholder for the logo of the ${title} student science club`
+          }
           width={500}
           height={500}
           className="rounded-2xl w-56 h-56"

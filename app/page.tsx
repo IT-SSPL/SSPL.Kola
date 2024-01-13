@@ -1,6 +1,5 @@
 "use client";
 
-// import Image from "next/image";
 import { useSuspenseQuery } from "@apollo/client";
 import { FETCH_FACULTIES } from "./lib/fetchFaculties";
 import { Suspense } from "react";

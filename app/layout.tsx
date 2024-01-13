@@ -6,8 +6,11 @@ import Footer from "./components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Koła Naukowe",
-  description: "Koła naukowe Politechniki Łódzkiej",
+  title: "Koła Naukowe PŁ",
+  description:
+    "Dowiedz się więcej o Kołach Naukowych na Politechnice Łódzkiej. Odkrywajcie razem fascynujący świat nauki, innowacji i eksperymentów. Bądź częścią społeczności studenckiej, która pasjonuje się rozwijaniem wiedzy technicznej i naukowej. Dołącz do naszego Koła Naukowego i wspólnie podbijajmy granice naukowej odkrywczości.",
+  keywords:
+    "koła naukowe, politechnika łódzka, politechnika, łódź, studenci, nauka, innowacje, eksperymenty, społeczność studencka, rozwój, wiedza, technika, nauka, odkrywczość, koła naukowe politechniki łódzkiej, koła naukowe łódź, koła naukowe politechnika łódzka, koła naukowe politechnika",
 };
 
 export default function RootLayout({
