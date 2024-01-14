@@ -56,7 +56,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
             <div className="flex flex-col gap-3 w-full md:w-[70%]">
               <p className="font-semibold text-gray-500 italic">
                 Funkcjonujące na Wydziale:{" "}
-                {shortData.faculty.data.attributes.abbreviation}
+                {shortData.faculty.data.attributes.name.replace("Wydział ", "")}
               </p>
               <div className="markdown-style">
                 <span className="font-semibold text-[1.25rem]">
