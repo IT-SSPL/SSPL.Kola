@@ -2,6 +2,8 @@ import { CiLogout, CiSearch } from "react-icons/ci";
 import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { useState } from "react";
+import { useKeyboardShortcut } from "../hooks/useKeyboardShortcut";
+import { BsShift } from "react-icons/bs";
 
 interface SearchBarProps {
   open: boolean;
@@ -14,11 +16,10 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = useDebouncedCallback((term) => {
-    setOpen(false);
+  const handleSearch = useDebouncedCallback((e) => {
     const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set("query", term);
+    if (e.value) {
+      params.set("query", e.value);
     } else {
       params.delete("query");
     }
@@ -28,8 +29,21 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
         pathname === "/kola-naukowe" ? "" : "kola-naukowe"
       }?${params.toString()}`
     );
+    setOpen(false);
     setTerm("");
+    e.blur();
   }, 800);
+
+  const handleOpenSearchBox = () => {
+    setOpen(true);
+  };
+
+  const handleCloseSearchBox = () => {
+    setOpen(false);
+  };
+
+  useKeyboardShortcut(["shift", "s"], handleOpenSearchBox);
+  useKeyboardShortcut(["esc"], handleCloseSearchBox);
 
   return (
     <div
@@ -38,12 +52,20 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
       className={`w-full inline-flex justify-end items-center z-20`}
     >
       <div
+        role="tooltip"
+        aria-describedby="search-bar"
+        className="text-sm flex items-center text-gray-500 dark:text-gray-400"
+      >
+        <BsShift /> S
+      </div>
+      <div
         className={`search-bg top-0 left-0 fixed w-screen min-h-screen flex justify-center
       items-center bg-[#F7F5FAF8] dark:bg-[#252525F8] transition-all duration-500 ease-in-out ${
         open ? "visible opacity-100" : "invisible opacity-0"
       }`}
       >
         <input
+          id="search-bar"
           type="text"
           className={`w-3/4 pb-1 bg-transparent outline-none border-b-[1px] border-primary dark:border-darkprimary text-2xl md:w-1/2
         `}
@@ -51,11 +73,10 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
           value={term}
           onChange={(e) => {
             setTerm(e.target.value);
-            handleSearch(e.target.value);
+            handleSearch(e.target);
           }}
         />
       </div>
-
       <button
         className={`text-[2rem] z-30 ${open && "fixed"}`}
         onClick={() => {
