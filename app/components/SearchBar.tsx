@@ -31,8 +31,8 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
         pathname === "/kola-naukowe" ? "" : "kola-naukowe"
       }?${params.toString()}`
     );
-    setOpen(false);
     setTerm("");
+    handleCloseSearchBox();
   };
 
   const handleSearch = useDebouncedCallback((e) => {
@@ -40,14 +40,19 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
       handleURLReplace(e.value);
       e.blur();
     }
-  }, 800);
+  }, 1000);
 
   const handleOpenSearchBox = () => {
     setOpen(true);
+
+    setTimeout(() => {
+      document.getElementById("search-bar")?.focus();
+    }, 500);
   };
 
   const handleCloseSearchBox = () => {
     setOpen(false);
+    document.getElementById("search-bar")?.blur();
   };
 
   const handleUseSearchBox = () => {
@@ -89,15 +94,7 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
       </div>
       <button
         className={`text-[2rem] z-30 relative ${open && "fixed"}`}
-        onClick={() => {
-          setOpen(!open);
-
-          if (!open) {
-            setTimeout(() => {
-              document.getElementById("search-bar")?.focus();
-            }, 500);
-          }
-        }}
+        onClick={() => handleOpenSearchBox()}
       >
         {open ? (
           <CiLogout />
