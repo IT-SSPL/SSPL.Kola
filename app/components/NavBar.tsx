@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useTheme } from "next-themes";
@@ -21,12 +21,20 @@ const NavBar = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
   const [isEnlargedFontSize, setIsEnlargedFontSize] = useState(false);
+  const [showLogo, setShowLogo] = useState(false);
+
+  useEffect(() => {
+    setShowLogo(true);
+  }, [showLogo]);
 
   if (typeof document !== "undefined") {
     isEnlargedFontSize
       ? document.documentElement.classList.add("text-xl")
       : document.documentElement.classList.remove("text-xl");
   }
+
+  const logo_url =
+    theme === "dark" ? "/logo_pl_light.png" : "/logo_pl_dark.png";
 
   return (
     <nav
@@ -35,14 +43,16 @@ const NavBar = () => {
       className="relative pt-8 pb-4 grid grid-cols-4 border-b-[1px] border-primary dark:border-darkprimary 2xl:pt-10 2xl:pb-6"
     >
       <Link href="/" className="col-span-2 lg:col-span-1 flex">
-        <Image
-          src={theme === "dark" ? "/logo_pl_light.png" : "/logo_pl_dark.png"}
-          alt="Logo of the Lodz University of Technology"
-          width={0}
-          height={0}
-          sizes="5rem"
-          className="w-7 lg:w-9 mr-2"
-        />
+        {showLogo && (
+          <Image
+            src={logo_url}
+            alt="Logo of the Lodz University of Technology"
+            width={0}
+            height={0}
+            sizes="5rem"
+            className="w-7 lg:w-9 mr-2"
+          />
+        )}
         <h1
           className={`${poller_one.className} text-base lg:text-xl 2xl:text-2xl`}
         >

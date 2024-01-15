@@ -16,10 +16,12 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const handleSearch = useDebouncedCallback((e) => {
+  const [autoSearch, setAutoSearch] = useState(true);
+
+  const handleURLReplace = (queryValue: string) => {
     const params = new URLSearchParams(searchParams);
-    if (e.value) {
-      params.set("query", e.value);
+    if (queryValue) {
+      params.set("query", queryValue);
     } else {
       params.delete("query");
     }
@@ -31,7 +33,13 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
     );
     setOpen(false);
     setTerm("");
-    e.blur();
+  };
+
+  const handleSearch = useDebouncedCallback((e) => {
+    if (autoSearch) {
+      handleURLReplace(e.value);
+      e.blur();
+    }
   }, 800);
 
   const handleOpenSearchBox = () => {
@@ -42,22 +50,23 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
     setOpen(false);
   };
 
+  const handleUseSearchBox = () => {
+    if (open && term) {
+      setAutoSearch(false);
+      handleURLReplace(term);
+    }
+  };
+
   useKeyboardShortcut(["shift", "s"], handleOpenSearchBox);
   useKeyboardShortcut(["esc"], handleCloseSearchBox);
+  useKeyboardShortcut(["enter"], handleUseSearchBox);
 
   return (
     <div
       // onMouseEnter={() => setOpen(true)}
       // onMouseLeave={() => setOpen(false)}
-      className={`w-full inline-flex justify-end items-center z-20`}
+      className={`w-full inline-flex justify-end items-center z-20 relative`}
     >
-      <div
-        role="tooltip"
-        aria-describedby="search-bar"
-        className="text-sm flex items-center text-gray-500 dark:text-gray-400"
-      >
-        <BsShift /> S
-      </div>
       <div
         className={`search-bg top-0 left-0 fixed w-screen min-h-screen flex justify-center
       items-center bg-[#F7F5FAF8] dark:bg-[#252525F8] transition-all duration-500 ease-in-out ${
@@ -74,16 +83,36 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
           onChange={(e) => {
             setTerm(e.target.value);
             handleSearch(e.target);
+            setAutoSearch(true);
           }}
         />
       </div>
       <button
-        className={`text-[2rem] z-30 ${open && "fixed"}`}
+        className={`text-[2rem] z-30 relative ${open && "fixed"}`}
         onClick={() => {
           setOpen(!open);
+
+          if (!open) {
+            setTimeout(() => {
+              document.getElementById("search-bar")?.focus();
+            }, 500);
+          }
         }}
       >
-        {open ? <CiLogout /> : <CiSearch />}
+        {open ? (
+          <CiLogout />
+        ) : (
+          <>
+            <CiSearch />
+            <div
+              role="tooltip"
+              aria-describedby="search-bar"
+              className="text-[0.6rem] flex items-center text-gray-500 dark:text-gray-400 absolute bottom-[-0.7rem] left-1/2 transform -translate-x-1/2"
+            >
+              <BsShift /> S
+            </div>
+          </>
+        )}
       </button>
     </div>
   );
