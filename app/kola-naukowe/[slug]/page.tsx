@@ -62,7 +62,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
                 <span className="font-semibold text-[1.25rem]">
                   Opis koła studenckiego:
                 </span>{" "}
-                <Markdown rehypePlugins={[remarkGfm, rehypeRaw]}>
+                <Markdown
+                  rehypePlugins={[remarkGfm, rehypeRaw]}
+                  className="whitespace-pre-wrap"
+                >
                   {shortData.description}
                 </Markdown>
               </div>
