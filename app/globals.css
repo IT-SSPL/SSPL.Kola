@@ -106,7 +106,7 @@ body {
 }
 
 .markdown-style ul {
-  @apply list-disc list-inside;
+  @apply list-disc list-inside my-2;
 }
 
 .markdown-style code {

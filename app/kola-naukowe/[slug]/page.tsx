@@ -6,6 +6,7 @@ import InfoCard from "@/app/components/InfoCard";
 import SocialMediaCard from "@/app/components/SocialMediaCard";
 import { poller_one } from "@/app/fonts";
 import { FETCH_ACADEMIC_CIRCLE } from "@/app/lib/fetchAcademicCircle";
+import NotFound from "@/app/not-found";
 import { useSuspenseQuery } from "@apollo/client";
 import Image from "next/image";
 import { Suspense } from "react";
@@ -18,7 +19,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
     variables: { slug: params.slug },
   });
 
-  if (data.academicCircles.data.length === 0) return <p>Not found</p>; // TODO: Edit this to be more user friendly
+  if (data.academicCircles.data.length === 0) return <NotFound />;
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
   const shortData = data.academicCircles.data[0].attributes;
@@ -62,10 +63,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
                 <span className="font-semibold text-[1.25rem]">
                   Opis koła studenckiego:
                 </span>{" "}
-                <Markdown
-                  rehypePlugins={[remarkGfm, rehypeRaw]}
-                  className="whitespace-pre-wrap"
-                >
+                <Markdown rehypePlugins={[remarkGfm, rehypeRaw]}>
                   {shortData.description}
                 </Markdown>
               </div>

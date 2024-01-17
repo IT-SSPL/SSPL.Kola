@@ -30,7 +30,7 @@ const Page = () => {
                 </summary>
                 <Markdown
                   rehypePlugins={[remarkGfm, rehypeRaw]}
-                  className="pt-3 pb-4 markdown-style whitespace-pre-wrap"
+                  className="pt-3 pb-4 markdown-style"
                 >
                   {attributes.answer}
                 </Markdown>
