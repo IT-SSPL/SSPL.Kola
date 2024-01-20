@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { mulish, poller_one } from "../fonts";
+import { imageUrlConverter } from "../hooks/imageUrlConverter";
 
 type InfoCardProps = {
   photoUrl?: {
@@ -22,6 +23,9 @@ const InfoCard = ({
   pathUrl,
   isCircle,
 }: InfoCardProps) => {
+  const logoUrl =
+    (photoUrl && imageUrlConverter(photoUrl.attributes.url)) || "";
+
   return (
     <div>
       <Link
@@ -30,7 +34,7 @@ const InfoCard = ({
         style={{ backdropFilter: "blur(10px)" }}
       >
         <Image
-          src={photoUrl ? photoUrl.attributes.url : "/card-placeholder.jpg"}
+          src={photoUrl ? logoUrl : "/card-placeholder.jpg"}
           alt={
             photoUrl
               ? `Logo of the student science club ${title}`

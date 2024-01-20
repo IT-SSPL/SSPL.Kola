@@ -13,6 +13,7 @@ import { Suspense } from "react";
 import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import { imageUrlConverter } from "@/app/hooks/imageUrlConverter";
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const { data, error } = useSuspenseQuery(FETCH_ACADEMIC_CIRCLE, {
@@ -23,6 +24,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
   const shortData = data.academicCircles.data[0].attributes;
+  const logoUrl =
+    (shortData.logo?.data &&
+      imageUrlConverter(shortData.logo?.data?.attributes?.url)) ||
+    "";
 
   return (
     <main className="container min-h-screen flex flex-col mx-auto items-center gap-7">
@@ -36,11 +41,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
         </div>
         <ContentContainer style={"md:hidden justify-center"}>
           <Image
-            src={
-              shortData.logo?.data
-                ? shortData.logo.data.attributes.url
-                : "/card-placeholder.jpg"
-            }
+            src={shortData.logo?.data ? logoUrl : "/card-placeholder.jpg"}
             alt={
               shortData.logo?.data
                 ? `Logo of the student science club ${shortData.name}`
@@ -75,11 +76,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
               )}
             </div>
             <Image
-              src={
-                shortData.logo?.data
-                  ? shortData.logo.data.attributes.url
-                  : "/card-placeholder.jpg"
-              }
+              src={shortData.logo?.data ? logoUrl : "/card-placeholder.jpg"}
               alt={
                 shortData.logo?.data
                   ? `Logo of the student science club ${shortData.name}`
