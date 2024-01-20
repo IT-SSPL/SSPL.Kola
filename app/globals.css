@@ -4,12 +4,12 @@
 
 :root {
   --text-color: #252525;
-  --background: url("/background-light.jpg");
+  --background: url("/background-light.webp");
 }
 
 [style="color-scheme: dark;"] {
   --text-color: #f6f4f9;
-  --background: url("/background-dark.jpg");
+  --background: url("/background-dark.webp");
 }
 
 body {

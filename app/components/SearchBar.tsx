@@ -95,7 +95,13 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
       <button
         aria-label="Open the search bar"
         className={`text-[2rem] z-30 relative ${open && "fixed"}`}
-        onClick={() => handleOpenSearchBox()}
+        onClick={() => {
+          if (open) {
+            handleCloseSearchBox();
+          } else {
+            handleOpenSearchBox();
+          }
+        }}
       >
         {open ? (
           <CiLogout />
