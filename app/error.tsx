@@ -26,7 +26,11 @@ const Error = ({
         </div>
       </div>
       <span className="my-6">{error && error.toString()}</span>
-      <button onClick={() => reset()} className="text-3xl">
+      <button
+        aria-label="Reset the page"
+        onClick={() => reset()}
+        className="text-3xl"
+      >
         <CiRepeat />
       </button>
     </div>

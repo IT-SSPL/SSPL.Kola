@@ -20,7 +20,7 @@ const Header = ({ small, title, subtitle, style }: HeaderProps) => (
     >
       {title}
     </h1>
-    <h3
+    <h2
       className={`gradient-for-text text-transparent ${
         small
           ? "text-lg md:text-xl"
@@ -28,7 +28,7 @@ const Header = ({ small, title, subtitle, style }: HeaderProps) => (
       }`}
     >
       {subtitle}
-    </h3>
+    </h2>
   </header>
 );
 

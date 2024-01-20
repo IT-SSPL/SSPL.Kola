@@ -93,6 +93,7 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
         />
       </div>
       <button
+        aria-label="Open the search bar"
         className={`text-[2rem] z-30 relative ${open && "fixed"}`}
         onClick={() => handleOpenSearchBox()}
       >

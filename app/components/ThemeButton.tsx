@@ -17,6 +17,7 @@ const ThemeButton = () => {
   return (
     <div className="relative inline-flex items-center">
       <button
+        aria-label="Toggle Dark Mode"
         onClick={() => (theme == "dark" ? setTheme("light") : setTheme("dark"))}
       >
         <div

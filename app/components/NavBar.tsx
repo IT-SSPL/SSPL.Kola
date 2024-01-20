@@ -87,6 +87,7 @@ const NavBar = () => {
         <div className="inline-flex items-center">
           <div className="flex items-baseline gap-1 h-6">
             <button
+              aria-label="(A) Normal font size"
               className={`h-6 transition-colors duration-300 hover:text-highlight ${
                 !isEnlargedFontSize && "text-active font-bold"
               }`}
@@ -95,6 +96,7 @@ const NavBar = () => {
               A
             </button>
             <button
+              aria-label="(A) Enlarged font size"
               className={`h-6 text-xl transition-colors duration-300 hover:text-highlight ${
                 isEnlargedFontSize && "text-active font-bold"
               }`}

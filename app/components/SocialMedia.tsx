@@ -39,6 +39,8 @@ const SocialMedia = ({
       <Link
         href={url}
         target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Social media link"
         className={`w-12 h-12 grid place-items-center rounded-full text-3xl border-[1px] sm:w-16 sm:h-16 sm:text-4xl ${
           isDark
             ? "border-darkprimary text-darkprimary"

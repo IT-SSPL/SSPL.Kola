@@ -8,6 +8,7 @@ const BurgerMenu = ({ open, setOpen, style }: BurgerMenuProps) => {
   return (
     <div className={`z-10 items-center ${style}`}>
       <button
+        aria-label="Toggle the menu"
         className="w-8 h-8 flex flex-col justify-center items-center"
         onClick={() => setOpen(open ? false : true)}
       >
