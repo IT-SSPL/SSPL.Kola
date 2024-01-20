@@ -42,7 +42,7 @@ const InfoCard = ({
           }
           width={500}
           height={500}
-          loading="lazy"
+          loading="eager"
           className="rounded-2xl w-56 h-56"
         />
         <h3
