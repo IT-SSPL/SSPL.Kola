@@ -51,6 +51,7 @@ const NavBar = () => {
             height={0}
             sizes="5rem"
             className="w-7 lg:w-9 mr-2"
+            priority
           />
         )}
         <h1
