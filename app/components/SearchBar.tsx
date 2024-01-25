@@ -111,7 +111,7 @@ const SearchBar = ({ open, setOpen }: SearchBarProps) => {
             <div
               role="tooltip"
               aria-describedby="search-bar"
-              className="text-[0.6rem] flex items-center text-gray-500 dark:text-gray-400 absolute bottom-[-0.7rem] left-1/2 transform -translate-x-1/2"
+              className="text-[0.6rem] flex items-center text-gray-500 dark:text-gray-400 absolute bottom-0 left-1/2 transform -translate-x-1/2 -translate-y-[-70%]"
             >
               <BsShift /> S
             </div>
