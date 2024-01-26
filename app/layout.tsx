@@ -10,7 +10,13 @@ export const metadata: Metadata = {
     default: "Koła Naukowe PŁ",
     template: "%s | Koła Naukowe PŁ",
   },
-  robots: "index, follow",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+    },
+  },
   icons: [
     {
       url: "/favicon.ico",
