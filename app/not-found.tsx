@@ -1,5 +1,10 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { CiLogout } from "react-icons/ci";
+
+export const metadata: Metadata = {
+  title: "404",
+};
 
 const NotFound = () => {
   return (

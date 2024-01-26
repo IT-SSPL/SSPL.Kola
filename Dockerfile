@@ -2,6 +2,7 @@ FROM node:18-alpine as base
 
 FROM base as with_all_deps
 WORKDIR /app
+ENV NODE_ENV=production
 COPY . ./
 RUN yarn
 RUN yarn build

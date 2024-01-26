@@ -6,7 +6,17 @@ import Footer from "./components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Koła Naukowe PŁ",
+  title: {
+    default: "Koła Naukowe PŁ",
+    template: "%s | Koła Naukowe PŁ",
+  },
+  robots: "index, follow",
+  icons: [
+    {
+      url: "/favicon.ico",
+      type: "image/x-icon",
+    },
+  ],
   description:
     "Dowiedz się więcej o Kołach Naukowych na Politechnice Łódzkiej. Odkrywajcie razem fascynujący świat nauki, innowacji i eksperymentów. Bądź częścią społeczności studenckiej, która pasjonuje się rozwijaniem wiedzy technicznej i naukowej. Dołącz do naszego Koła Naukowego i wspólnie podbijajmy granice naukowej odkrywczości.",
   keywords:
