@@ -49,7 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     {
-      url: `${public_url}`,
+      url: `${public_url}/`,
       lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 1,
@@ -58,13 +58,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${public_url}/kola-naukowe`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.9,
+      priority: 1,
     },
     {
       url: `${public_url}/kontakt`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${public_url}/faq`,
