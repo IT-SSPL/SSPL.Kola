@@ -30,7 +30,7 @@ const InfoCard = ({
     <div>
       <Link
         href={pathUrl ? pathUrl : `/kola-naukowe`}
-        className="group flex flex-col gap-4 justify-start items-center h-full sm:px-4 sm:py-3 md:px-7 md:py-6 px-11 py-9 bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
+        className="group flex flex-col gap-4 justify-start items-center h-full px-6 py-6 sm:px-4 sm:py-3 md:px-7 md:py-6  bg-card bg-opacity-60 rounded-3xl shadow-center-md hover:shadow-center-2xl transition-all duration-300 hover:bg-opacity-80 dark:bg-darkcard dark:bg-opacity-20 dark:hover:bg-opacity-60"
         style={{ backdropFilter: "blur(10px)" }}
       >
         <Image
@@ -47,7 +47,7 @@ const InfoCard = ({
         <h3
           className={`${
             isCircle
-              ? `text-3xl sm:text-2xl mt-6 sm:mt-2`
+              ? `text-xl xs:text-2xl mt-2 sm:mt-4`
               : `text-3xl sm:text-4xl`
           } text-center ${
             poller_one.className
