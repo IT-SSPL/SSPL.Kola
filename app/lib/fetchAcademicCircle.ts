@@ -65,6 +65,10 @@ const FETCH_ACADEMIC_CIRCLE: TypedDocumentNode<Data, Variables> = gql`
             type
             url
           }
+          achievements {
+            title
+            description
+          }
         }
       }
     }

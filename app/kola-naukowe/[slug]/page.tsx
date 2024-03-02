@@ -14,6 +14,7 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { imageUrlConverter } from "@/app/hooks/imageUrlConverter";
+import AchievementsCarousel from "@/app/components/AchievementsCarousel";
 
 const Page = ({ params }: { params: { slug: string } }) => {
   const { data, error } = useSuspenseQuery(FETCH_ACADEMIC_CIRCLE, {
@@ -24,6 +25,7 @@ const Page = ({ params }: { params: { slug: string } }) => {
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
   const shortData = data.academicCircles.data[0].attributes;
+  console.log(shortData);
   const logoUrl =
     (shortData.logo?.data &&
       imageUrlConverter(shortData.logo?.data?.attributes?.url)) ||
@@ -113,6 +115,10 @@ const Page = ({ params }: { params: { slug: string } }) => {
             <SocialMediaCard socials={shortData.social_media} />
           )}
         <ContactCard email={shortData.email} address={shortData.address} />
+        {shortData.achievements?.length !== 0 &&
+          shortData.achievements?.length && (
+            <AchievementsCarousel achievements={shortData.achievements} />
+          )}
       </Suspense>
     </main>
   );
