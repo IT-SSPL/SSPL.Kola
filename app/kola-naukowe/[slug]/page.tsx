@@ -25,7 +25,6 @@ const Page = ({ params }: { params: { slug: string } }) => {
   if (error) return <p>Error :\</p>; // TODO: Replace with error page
 
   const shortData = data.academicCircles.data[0].attributes;
-  console.log(shortData);
   const logoUrl =
     (shortData.logo?.data &&
       imageUrlConverter(shortData.logo?.data?.attributes?.url)) ||

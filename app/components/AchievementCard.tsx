@@ -8,10 +8,12 @@ export interface IAchievement {
 
 const AchievementCard = ({ title, description, style }: IAchievement) => {
   return (
-    <ContentContainer style={`flex-col md:flex-row justify-between ${style}`}>
-      <div className="flex flex-col gap-2">
-        <h3 className="font-extrabold">{title}</h3>
-        <p>{description}</p>
+    <ContentContainer
+      style={`flex-col justify-between !py-10 !px-8 h-full w-full ${style}`}
+    >
+      <div className="flex flex-col gap-2 overflow-auto scrollbar-thin scrollbar-track-transparent scrollbar-thumb-rounded-full scrollbar-track-rounded-full">
+        <h3 className="font-extrabold uppercase text-center">{title}</h3>
+        <p className="text-justify">{description}</p>
       </div>
     </ContentContainer>
   );
