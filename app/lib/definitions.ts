@@ -16,6 +16,11 @@ export interface ISocialMedia {
   url: string;
 }
 
+export interface IAchievement {
+  title: string;
+  description: string;
+}
+
 export interface IContact {
   email: string;
   address: {
@@ -85,6 +90,7 @@ export interface IAcademicCircle {
     street: string;
   };
   social_media?: ISocialMedia[];
+  achievements?: IAchievement[];
 }
 
 export interface IFaqQuestion {

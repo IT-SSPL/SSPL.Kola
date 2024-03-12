@@ -1,0 +1,40 @@
+/* styles.css */
+* {
+  box-sizing: border-box;
+}
+
+.carousel {
+  perspective: 500px;
+  transform-style: preserve-3d;
+}
+
+.card-container {
+  transform: scale(calc(1 + var(--abs-offset) * -0.4))
+    translateZ(calc(var(--abs-offset) * -30rem))
+    translateX(calc(var(--direction) * -22.5rem));
+  filter: blur(calc(var(--abs-offset) * 1rem));
+}
+
+@media screen and (max-width: 992px) {
+  .card-container {
+    transform: scale(calc(1 + var(--abs-offset) * -0.7))
+      translateZ(calc(var(--abs-offset) * -30rem))
+      translateX(calc(var(--direction) * -20rem));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    transform: scale(calc(1 + var(--abs-offset) * -0.7))
+      translateZ(calc(var(--abs-offset) * -30rem))
+      translateX(calc(var(--direction) * -15rem));
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card-container {
+    transform: scale(calc(1 + var(--abs-offset) * -1))
+      translateZ(calc(var(--abs-offset) * -30rem))
+      translateX(calc(var(--direction) * -12rem));
+  }
+}
