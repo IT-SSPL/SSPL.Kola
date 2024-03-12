@@ -114,10 +114,9 @@ const Page = ({ params }: { params: { slug: string } }) => {
             <SocialMediaCard socials={shortData.social_media} />
           )}
         <ContactCard email={shortData.email} address={shortData.address} />
-        {shortData.achievements?.length !== 0 &&
-          shortData.achievements?.length && (
-            <AchievementsCarousel achievements={shortData.achievements} />
-          )}
+        {shortData.achievements && (
+          <AchievementsCarousel achievements={shortData.achievements} />
+        )}
       </Suspense>
     </main>
   );
